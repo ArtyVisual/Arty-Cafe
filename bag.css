@@ -1,0 +1,422 @@
+:root{
+    --body-col: rgb(249, 239, 224);
+    --sec-col: rgb(83, 36, 6);
+}
+
+body{
+    background-color: rgb(249, 239, 224);
+  }
+
+  /* .gradient-text {
+    background: linear-gradient(90deg, #000000 30%, #ff0909 33%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+} */
+.back-btn{
+  cursor: pointer;
+}
+
+.upper{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.top{
+    color:rgb(79, 15, 14);
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    position: -webkit-sticky; /* For Safari */
+    position: sticky;
+    top: -40;
+
+    z-index: 1000; /* Ensures it stays above other content */
+    
+  }  
+  @media only screen and (max-width:600px) {
+    .top{
+      color:rgb(255, 243, 243);
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      position: -webkit-sticky; /* For Safari */
+      position: sticky;
+      top:0;
+      z-index: 1000; /* Ensures it stays above other content */
+      
+    }  
+  }
+#cart{
+    padding-bottom: 3%;
+    margin: 0% 2%;
+    border-bottom: 8px dotted rgb(72, 32, 8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.cart-content{
+    background-color: rgb(83, 36, 6);
+    box-shadow: 10px 11px 5px #a38766;
+    width: 700px;
+    border-width: 3px;
+    display: flex ;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+
+
+.corner{
+    background-image: url('img/splash2.png');
+    background-size:150%;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+
+.product-image{
+  
+    height: 220px;
+    width: 250px;
+}
+
+
+
+.desc{
+    top: 5;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    padding: 1%;
+}
+.product-name{
+    font-family:Arial, Helvetica, sans-serif;
+    width: 300px;
+    color:rgb(255, 245, 191);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 4%;
+    padding: 2%;
+}
+.desc2{
+    margin: 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.qty{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+}
+.price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+
+}
+.product-price{
+    color:rgb(255, 245, 191);
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding-top: 5%;
+    padding-left: 10%;
+    margin: 1%;
+
+}
+.input{
+    padding-left: 2%;
+    margin-top:5%;
+}
+.product-quantity{
+    width: 50px;
+    color:rgb(225, 216, 149);
+    font-size: 1.2rem;
+    font-weight: 900;
+    margin: 1%;
+    padding: 1%;
+    border-radius: 4px;
+   
+    background-color: var(--sec-col)
+}
+.remove-product:hover{
+    .svgIcon path{
+        fill: aqua;
+    }
+}
+.last{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tot-sec{
+    border-radius: 7px;
+    display: grid;
+    background-color: azure;
+    width: 40%;
+}
+.total-tag{
+    text-align: center;
+    font-size: 1.5rem;
+    color: rgb(1, 51, 42);
+    font-weight: 600;
+}
+#f-amount{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+.total{
+    
+    text-align: center;
+    font-size:1.8rem;
+    color: rgba(0, 66, 96, 0.957);
+    font-weight: 700;
+    font-family:Georgia, 'Times New Roman', Times, serif Times, serif
+}
+
+.pay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* css for pay now button */
+
+.Btn {
+    width: 150px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(15, 15, 15);
+    border: none;
+    color: white;
+    font-weight: 600;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+  }
+  #no-products{
+    opacity:0;
+    animation: horse 20s linear 0s 50  ;  }
+
+
+  @keyframes horse {
+    0% {
+
+      opacity:0%;
+    }
+    20%{
+      opacity: 100%;
+    }
+    60%{
+      opacity: 100%;
+    }
+    80%{
+      opacity: 100%;
+    }
+    
+
+  }
+  .svgIcon {
+    width: 16px;
+  }
+  
+  .svgIcon path {
+    fill: rgb(255, 255, 255);
+  }
+  
+  .Btn::before {
+    width: 150px;
+    height: 130px;
+    position: absolute;
+    content: "";
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    left: -100%;
+    top: 0;
+    transition-duration: .3s;
+    mix-blend-mode: difference;
+  }
+  
+  .Btn:hover::before {
+    transition-duration: .3s;
+    transform: translate(100%,-50%);
+    border-radius: 0;
+  }
+  
+  .Btn:active {
+    transform: translate(5px,5px);
+    transition-duration: .3s;
+  }
+  .ikk{
+    color:#013831, #058b0e
+  }
+
+  .lobster-regular {
+    font-family: "Lobster", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  .teko {
+    font-family: "Teko", sans-serif;
+    font-optical-sizing: auto;
+    font-weight:500;
+    font-style: normal;
+  }
+  
+
+  
+@media only screen and (max-width:700px) {
+  
+  .cart-content{
+    background-color: rgb(83, 36, 6);
+    box-shadow: 10px 11px 5px #a38766;
+    width: 400px;
+    border-width: 3px;
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+    }
+
+    .product-image{
+      align-content: center;
+      height: 250px;
+      width: 300px;
+    }
+
+  .corner{
+    display: flex;
+    padding-top: 5%;
+    padding-bottom: 15%;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+    background-image: url('img/splash2.png');
+    background-size:120%;
+    background-position:center;
+    background-repeat: no-repeat;
+  }
+
+  .desc{
+    margin-top: -10%;
+    margin-left: 20%;
+    width:auto;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    padding: 0%;
+  }
+  .product-name{
+    font-family:Arial, Helvetica, sans-serif;
+    width: 300px;
+    color:rgb(255, 245, 191);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 4%;
+    padding: 2%;
+  }
+  .desc2{
+    margin: 4%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .qty{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+  }
+  .price{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+
+  }
+  .product-price{
+    color:rgb(255, 245, 191);
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding-top: 5%;
+    padding-left: 10%;
+    margin: 1%;
+
+  }
+  .input{
+    padding-left: 2%;
+    margin-top:5%;
+  }
+  .product-quantity{
+    width: 50px;
+    color:rgb(225, 216, 149);
+    font-size: 1.2rem;
+    font-weight: 900;
+    margin: 1%;
+    padding: 1%;
+    border-radius: 4px;
+  
+    background-color: var(--sec-col)
+  }
+  .remove-product:hover{
+    .svgIcon path{
+        fill: aqua;
+    }
+  }
+  .last{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tot-sec{
+    border-radius: 7px;
+    display: grid;
+    background-color: azure;
+    width: 90%;
+  }
+  .total-tag{
+    text-align: center;
+    font-size: 1.5rem;
+    color: rgb(1, 51, 42);
+    font-weight: 600;
+  }
+  #f-amount{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+  .total{
+    
+    text-align: center;
+    font-size:1.8rem;
+    color: rgba(0, 66, 96, 0.957);
+    font-weight: 700;
+    font-family:Georgia, 'Times New Roman', Times, serif Times, serif
+  }
+
+  .pay{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* css for pay now button */
+
+}

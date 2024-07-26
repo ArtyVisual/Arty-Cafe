@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+    <meta charset=UTF-8>
+    <meta name=viewport content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/output.css">
+    <link rel="stylesheet" href="details.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+US+Modern:wght@100..400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    
+</head>
+
+<body >
+    <div class="w-screen flex justify-between items-center">
+        <span class="p-5">
+
+                <img class="back-btn" src="img/back-button.png" alt="">
+
+        </span>
+
+        <div class="text-lg font-bold">
+
+            Details
+
+         </div>
+        <span class="p-5 ">
+            <a href="Bag.html">
+                <img src="img/forward.png" alt="">
+                <!-- <img src="img/shopping-bag.png" alt="">
+                <div class="dot">
+                    0
+                </div> -->
+            </a>
+        </span>
+    </div>
+    <div class="details w-screen ">
+        <div class="products grid md:flex justify-items-center justify-center items-center">
+
+            <div class="m-20 grid justify-between justify-items-stretch">
+                <div class="pic flex justify-center items-center">
+                    <img  id=""  class="product-image md:-ml-8 pb-1 md:pb-5" src="" alt="">
+                </div>
+                
+            </div>
+            <div class="grid  w-screen md:w-1/2 px-auto md:p-1 gap-10">
+                <div class="flex md:pl-0 w-screen md:w-full justify-around ">
+                    <span id="" class="product-name text-xl md:text-3xl font-extrabold text-yellow-900 ">
+                       
+                    </span>
+                    <span id="" class="product-price font-extrabold text-xl md:text-3xl text-emerald-700">
+                       
+                    </span>
+                </div>
+                <div class="md:p-2 text-center ubuntu text-md p-4 md:text-xl text-green-950">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus quaerat blanditiis rerum soluta fuga
+                    asperiores? Recusandae, est? Repellendus consequatur, esse excepturi impedit explicabo sapiente voluptatibus
+                    qui ex quidem accusamus quae fuga magni neque. Aliquid, aperiam!
+                </div>
+                <div class="grid justify-items-center items-center gap-4 mb-20 md:mb-0 md:my-18 md:flex md:justify-around md:items-center md:flex-wrap">
+                    
+                    <div>
+                        <select
+                        name="mode"
+                        class="drop rounded-lg border-2 md:w-32 px-auto m-4 text-center py-2 font-semibold text-white border-white p-2 bg-emerald-700"
+                        placeholder="Select Mode"
+                        >
+                        <option value="" enabled>Select Size</option>
+                        <option value="Gpay">Tall</option>
+                        <option value="Paytm">Grande</option>
+                        <option value="Netbanking">Venti</option>
+                        <option value="Cash">Custom</option>
+                        </select>
+                    </div>
+                <div class="flex items-center mx-4 gap-2 py-2 rounded-md px-4 ">
+                    <button class="minus bg-red-600  font-extrabold text-xl p-2 rounded-full mr-3 text-white">
+                        <img class="w-3 h-3" src="img/minus.png" alt="">
+                    </button>
+                    
+                    <input value="1" readonly class=" qty w-10 rounded-md text-center text-xl p-1 px-1 font-bold"/>
+                        
+                    <button class="plus bg-green-600 font-extrabold text-xl p-2 rounded-full ml-3 text-white">
+                        <img class="w-3 h-3" src="img/addition.png" alt="">
+                    </button>
+                </div>
+                <div class="px-3">
+                    <button id="AddToBag"  class="bg-yellow-100 p-2 mx-2 font-bold text-yellow-950 ring-2 rounded-lg ring-yellow-950">
+                     Add To Cart 
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="p-10 md:p-40 w-screen footer">
+        
+    </div>
+    
+    <script>
+        let currentqty = 1;
+    
+        document.querySelector('.plus').addEventListener('click', () => {
+            if (currentqty < 10) {
+                currentqty += 1;
+                document.querySelector('.qty').value = currentqty;
+            } else {
+                alert('Quantity cannot be greater than 10');
+            }
+        });
+    
+        document.querySelector('.minus').addEventListener('click', () => {
+            if (currentqty > 1) {
+                currentqty -= 1;
+                document.querySelector('.qty').value = currentqty;
+            } else {
+                alert('Quantity cannot be lesser than 1');
+            }
+        });
+    
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("AddToBag").addEventListener("click", () => {
+               
+                let cart = JSON.parse(localStorage.getItem("bags")) || [];
+                const productDetails = JSON.parse(localStorage.getItem("details"));
+
+                const quantity = parseInt(document.querySelector('.qty').value);
+    
+                if (productDetails && productDetails.length > 0) {
+                   
+                    productDetails.forEach(item => {
+                        item.qty = quantity;
+                    });
+    
+                let productExists = false;
+
+                productDetails.forEach(newItem => {
+                    if (cart.some(cartItem => cartItem.id === newItem.id)) {
+                        productExists = true;
+                    }
+                });
+    
+                if (productExists) {
+                   showToast1();
+                } 
+                else {          
+                    cart = cart.concat(productDetails);                  
+                    console.log("Updated Cart:", cart); 
+                    localStorage.setItem("bags", JSON.stringify(cart));
+                    showToast();
+                }
+                }
+            });
+
+
+                    
+        function showToast() {
+            Toastify({
+                text: "Added To Cart",
+                duration: 1500, // Duration in milliseconds
+                close: true, // Show close button
+                gravity: "bottom", // `top` or `bottom`
+                position: "center", // `left`, `center` or `right`
+                backgroundColor: "#058b0e", // Background color
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+            }).showToast()
+        }
+
+        function showToast1() {
+            Toastify({
+                text: "Product Already Exist in Cart",
+                duration: 1500, // Duration in milliseconds
+                close: true, // Show close button
+                gravity: "top", // `top` or `bottom`
+                position: "center", // `left`, `center` or `right`
+                backgroundColor: "#5f0800", // Background color
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+            }).showToast()
+        }
+
+        });
+
+        document.querySelector('.back-btn').addEventListener('click', () => {
+            window.history.back();
+        });
+       
+    </script>
+
+    <script>
+        
+   
+        // Function to count the number of entries in a specific table in localStorage
+        function count(tableName) {
+            // Retrieve the table from localStorage
+            const table = JSON.parse(localStorage.getItem(tableName));
+            
+            // Check if the table exists and is an array
+            if (table && Array.isArray(table)) {
+                return table.length;
+            } else {
+                return 0;
+            }
+        }
+
+        // Count the entries in 'bags'
+        const num = count('bags');
+
+        // Update the .dot element with the count
+        document.querySelector('.dot').innerText = num;
+    
+    </script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    
+    <script src="details.js"></script>
+</body>
+
+</html>

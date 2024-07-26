@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset=UTF-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arty-Café</title>
+    <link rel="stylesheet" href="src/output.css">
+    <link rel="stylesheet" href="design.css">
+    <!-- fonts  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+US+Modern:wght@100..400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+
+
+
+</head>
+<body style="height: 100%;" >
+    <div class="flex justify-between my-4">
+        <div  class=" flex justify-start items-center">
+            <img class="w-12 h-10 mx-4 " src="img/lightlogo1.png" alt="">
+            <span class="text-black text-2xl font-bold playwrite-us-modern  ">
+                Arty-Café
+            </span> 
+            <!-- <span class="text-black text-2xl mt-1  playwrite-us-modern ">
+                &nbsp;Café
+            </span>  -->
+        </div>
+        <div class="relative mx-5 mt-1 ">
+            <a href="Bag.html">
+
+                <img src="img/shopping-bag.png" alt="">
+                <div class="dot">
+                    0
+                </div>
+
+            </a>
+        </div>
+    </div>
+    <div class=" md:flex grid md:gap-5 gap-2 justify-around items-center text-start mx-2 mt-10 md:mt-1 mb-10 md:mb-6 text-sm md:text-4xl font-bold">
+        
+        <div class="flex justify-center items-center md:w-36 md:pt-10 lobster-regular">
+
+            <span class=" ">
+                Smooth Out Your Everyday
+            </span>
+            <span class="md:hidden md:w-36 md:pt-10 lobster-regular text-right">
+                &nbsp;Only With Arty-Café
+            </span>
+        </div>
+
+        <div class="flex md:pl-10 md:gap-16 gap-6 ">
+
+            <div class="md:w-28 md:h-28 w-14 h-14 flex justify-center items-center rounded-full bg-white  active">
+                <img  src="img/coffee-cup.png" alt="">
+            </div>
+        <a href="HT.html">
+            <div class="option md:w-28 md:h-28 w-14 h-14 flex justify-center items-center rounded-full bg-white ">
+                <img src="img/tea-cup.png" alt="">
+                <span  class="sacramento-regular ">Tea</span>
+            </div>
+        </a>
+        <a href="Bakery.html">
+            <div class="option md:w-28 md:h-28 w-14 h-14 flex justify-center items-center rounded-full bg-white ">
+                <img src="img/cake.png" alt="">
+                <span class="sacramento-regular">Bakery</span>
+            </div>
+        </a>
+        <a href="drinks.html">
+            <div class="option md:w-28 md:h-28 w-14 h-14 flex justify-center items-center rounded-full bg-white ">
+                <img src="img/cocktail.png" alt="">
+                <span class="sacramento-regular">Drinks</span>
+            </div>
+        </a>
+        </div>
+        <div class="hidden md:block md:w-36 md:pt-10 lobster-regular text-right">
+            Only With Arty-Café
+        </div>
+        
+    </div>
+    <div  class="container0 ">
+
+        <div class="circle0"></div>
+        <div class="circle container1">
+            <div class="circle1">
+                <img src="img/splash2.png" alt="">
+        </div>
+        <div class="inner-circle">
+            
+        </div>
+        
+        <button onclick="playaudio()" class="change-btn teko absolute  text-lg  text-red-800" >
+            CHANGE
+        </button>
+        <div class="coffee coffee1">
+            <a   onclick="clearDetails(); Details('C1' ,'Cold Coffee',99,'img/cup1.png',1); " href="Details.html">
+
+            <img src="img/cup1.png" alt="">
+            <div  class=" tag ubuntu" >
+                Caramel <br> frappuccino <br>
+                <span>
+                    ₹399
+                </span>
+            </div>
+            </a>
+
+        </div>
+        <div class="coffee coffee2">
+            <a  onclick="clearDetails(); Details('C2' ,'Choco latte',99,'img/ncup2.png',1);" href="Details.html">
+                <div>
+                    <img src="img/ncup2.png" alt="">
+                    <div  class="tag ubuntu">
+                        Milk  <br> frappuccino <br>
+                        <span>
+                            ₹999
+                        </span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="coffee coffee3">
+            <a   onclick="clearDetails(); Details('C3' ,'Hot Chocolate Capaccino',199,'img/cup3.png',1); " href="Details.html">
+
+                <img src="img/cup3.png" alt="">
+                <div  class="tag ubuntu">
+                    Milk  <br> frappuccino <br>
+                    <span>
+                        ₹299
+                    </span>
+                </div>
+            </a>
+            
+        </div>
+        <div class="coffee coffee4">
+            <a   onclick="clearDetails(); Details('C4' ,'Thick Cream Coffee',249,'img/ncup4.png',1); " href="Details.html">
+                
+                <img src="img/ncup4.png" alt="">
+                <div  class="tag ubuntu">
+                    Choco <br> frappuccino <br>
+                    <span>
+                    ₹499
+                </span>
+            </div>
+        
+            </a>
+        </div>
+        <div class="coffee coffee5">
+            <a   onclick="clearDetails(); Details('C5' ,'Arty-Café Special',299,'img/cup5.png',1); " href="Details.html">
+
+            <img src="img/cup5.png" alt="">
+            <div  class="tag ubuntu">
+                Choco1 <br> frappuccino <br>
+                <span>
+                    ₹499
+                </span>
+            </div>
+        </a>
+        </div>
+        </div>
+    </div>
+    <div>
+        <audio  controls class="sound hidden" src="sound/Spinner.wav"></audio>
+    </div>
+    <script src="main.js"></script>
+    <script src="save.js"></script>
+</body>
+
+</html>
+
